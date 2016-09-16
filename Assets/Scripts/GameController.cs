@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     public Button pauseButton, menuButton;
     public Image uiDestroyBoltArea, uiMagnetBoltArea;
     public GameObject[] decors;
-    public CanvasGroup uiLevelComplete, uiGameOver, uiPause;
+    public CanvasGroup uiLevelComplete, uiGameOver, uiPause, uiOverdose;
     public Text timerText;
     public bool isOverdosed;
 
@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
         uiGameOver.blocksRaycasts = false;
         uiPause.alpha = 0f;
         uiPause.blocksRaycasts = false;
+        uiOverdose.alpha = 0f;
         Time.timeScale = 1;
         score = 200; coffeeScore = 500;
         UpdateScore();
@@ -83,12 +84,6 @@ public class GameController : MonoBehaviour
             {
                 float randSpawn = Random.value;
                 InstanciateCollectible(randSpawn);
-
-                /*if (Random.Range(0, 2) == 0)
-                    Instantiate(malus, spawnPosition, spawnRotation);
-                else
-                    Instantiate(bonus, spawnPosition, spawnRotation);*/
-
                 yield return new WaitForSeconds(spawnWait);
             }
             UpdateChances();
@@ -251,10 +246,11 @@ public class GameController : MonoBehaviour
         {
             // float randSpawn = Random.value;
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnValue.x, spawnValue.x), coffeePrefab.transform.position.y, spawnValue.z);
-            //Quaternion spawnRotation = Quaternion.identity;
+            //Quaternion spawnRotation = Quaternion.identity;s
             Instantiate(coffeePrefab, spawnPosition, coffeePrefab.transform.rotation);
             countCoffee++;
-            yield return new WaitForSeconds(waveWait);
+            float waitForCoffee = Random.Range(waveWait-2, waveWait+2);
+            yield return new WaitForSeconds(waitForCoffee);
         }
     }
 
@@ -268,11 +264,14 @@ public class GameController : MonoBehaviour
     }
 
     IEnumerator Overdose()
-    {
+    {       
         isOverdosed = true;
+        uiOverdose.alpha = 1f;
         Debug.Log("Overdose=" + isOverdosed);
         yield return new WaitForSeconds(overdoseDuration);
         isOverdosed = false;
+        uiOverdose.alpha = 0f;
+        AddCoffee(-750);
         Debug.Log("Overdose=" + isOverdosed);
     }
 }

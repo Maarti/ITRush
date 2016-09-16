@@ -86,7 +86,7 @@ public class PlayerController2 : MonoBehaviour
 
         touchedScreenPosition.z = 20;
         Vector3 touchedWorldPosition = Camera.main.ScreenToWorldPoint(touchedScreenPosition);
-        float offset = 0.2f;
+        float offset = 0.15f;
         if (touchedWorldPosition.x > this.transform.position.x + offset)
         {
             //Debug.Log("Droite - Player = " + this.transform.position + "    Screen = " + touchedScreenPosition + "   World = " + touchedWorldPosition);

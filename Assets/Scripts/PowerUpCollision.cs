@@ -22,6 +22,7 @@ public class PowerUpCollision : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
         if (other.tag == "Boundary")
             return;
         else if (other.tag == "Player")
@@ -29,7 +30,12 @@ public class PowerUpCollision : MonoBehaviour {
             Instantiate(collisionAnimation, transform.position, transform.rotation);
             if (this.tag == "Coffee")
                 gameController.AddCoffee(coffeeValue);
-            Destroy(gameObject);
+            audio.PlayOneShot(audio.clip);
+            foreach (Renderer r in GetComponentsInChildren<Renderer>())
+            {
+                r.enabled = false;
+            }
+            Destroy(gameObject, audio.clip.length);
         }
         
     }
