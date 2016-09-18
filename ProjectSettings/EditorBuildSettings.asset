@@ -7,9 +7,9 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/_Scenes/Splashscreen.unity
+  - enabled: 0
+    path: Assets/_Scenes/MainMenu_old.unity
   - enabled: 1
     path: Assets/_Scenes/MainMenu.unity
-  - enabled: 1
-    path: Assets/_Scenes/ChooseLevel.unity
   - enabled: 1
     path: Assets/_Scenes/Game.unity
