@@ -36,6 +36,7 @@ public class CameraMenuControler : MonoBehaviour
 
 		StartCoroutine (FloatingCoroutine ());
 		fadeInUiTouchScreen = StartCoroutine (FadeInUICoroutine (uiTouchScreen));
+
 	}
 
 	void Update ()

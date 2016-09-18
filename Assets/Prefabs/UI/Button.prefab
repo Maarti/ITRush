@@ -92,7 +92,7 @@ GameObject:
   - 222: {fileID: 222000012372040672}
   - 114: {fileID: 114000013761095686}
   m_Layer: 5
-  m_Name: Level text
+  m_Name: Level Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -273,7 +273,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 80 sec
+  m_Text: ?? sec
 --- !u!114 &114000010956891252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -338,7 +338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 50 sec
+  m_Text: ?? sec
 --- !u!114 &114000012487636514
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -524,7 +524,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 60 sec
+  m_Text: ?? sec
 --- !u!114 &114000013761095686
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -557,7 +557,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Project 1
+  m_Text: Project ?
 --- !u!114 &114000013803808902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -848,7 +848,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010161175014}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0.1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -870,7 +870,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010109229136}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0.1
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
