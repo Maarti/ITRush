@@ -23,7 +23,7 @@ public class GenerateLevelButtons : MonoBehaviour
 			foreach (Text text in button.GetComponentsInChildren<Text>()) {
 				switch (text.name) {
 				case "Level Text":
-					text.text = "Project " + lvl.id;
+					text.text = "Project " + (lvl.id + 1);
 					break;
 				case "Bronze Text":
 					text.text = lvl.bronzeTime + " sec";

@@ -6,11 +6,12 @@ public class SceneLoader : MonoBehaviour
 {
 
 	public string sceneName = "Game";
-	public int levelId = 0;
+	public int levelId;
 
 	public void LoadScene ()
 	{
-		ApplicationController.ac.lvlPlaying = levelId;
+		if (levelId != null && levelId != -1)
+			ApplicationController.ac.currentLevel = ApplicationController.ac.levels [levelId];
 		SceneManager.LoadScene (sceneName);
 	}
 }

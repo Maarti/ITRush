@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour
 		countBonus = 0;
 		countMalus = 0;
 		countCoffee = 0;
+		timeMax = ApplicationController.ac.currentLevel.bronzeTime;
 		timeLeft = timeMax;
 		nbDecors = decors.Length;
 		uiLevelComplete.alpha = 0f;
@@ -56,13 +57,11 @@ public class GameController : MonoBehaviour
 		coffeeScore = 500;
 		UpdateScore ();
 		UpdateCoffee ();
-		// Init chances
-		//chancesTarget = new float[3] { targetChanceOfCoffee, targetChanceOfBonus*(1f-targetChanceOfCoffee), (1f-targetChanceOfBonus) * (1f - targetChanceOfCoffee) };        
-		//chancesCurrent = chancesTarget;
-		//chancesReal = new float[3] { 0f, 0f, 0f };
+		targetBonusChance = ApplicationController.ac.currentLevel.bonusRate;
 		bonusChances = new float[3] { targetBonusChance, 0f, targetBonusChance };
-
-
+		bonusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.bonusValue;
+		malusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.malusValue;
+		Debug.Log ("Start level " + ApplicationController.ac.currentLevel.id + " - " + timeLeft + "sec");
 		// Start coroutines
 		StartCoroutine (SpawnWaves ());
 		StartCoroutine (SpawnCoffee ());
@@ -184,7 +183,7 @@ public class GameController : MonoBehaviour
 		float totalTime = timeMax - timeLeft;
 		ApplicationController.ac.LevelFinished (totalTime);
 		//ApplicationController.ac.earnMedal (0, 2);
-		ApplicationController.ac.Save ();
+
 	}
 
 	void GameOver ()

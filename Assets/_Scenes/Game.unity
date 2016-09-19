@@ -2029,6 +2029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainMenu
+  levelId: 0
 --- !u!114 &603409434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3577,6 +3578,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainMenu
+  levelId: 0
 --- !u!1 &1185274963
 GameObject:
   m_ObjectHideFlags: 0
@@ -4123,7 +4125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1295651043
 Transform:
   m_ObjectHideFlags: 0
@@ -5260,6 +5262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Game
+  levelId: -1
 --- !u!114 &1548156649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6176,6 +6179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Game
+  levelId: -1
 --- !u!114 &1833591609
 MonoBehaviour:
   m_ObjectHideFlags: 0
