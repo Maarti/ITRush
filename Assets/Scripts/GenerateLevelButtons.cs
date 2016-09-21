@@ -14,6 +14,7 @@ public class GenerateLevelButtons : MonoBehaviour
 	{
 		float alpha;
 		foreach (Level lvl in ApplicationController.ac.levels) {
+			Debug.Log ("Creating lvl :" + lvl.id);
 			Button button = Instantiate (buttonPrefab, gameObject.transform) as Button;
 			button.transform.SetParent (gameObject.transform, false);
 			button.transform.localScale = Vector3.one;
