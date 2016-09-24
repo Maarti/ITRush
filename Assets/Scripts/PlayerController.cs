@@ -11,26 +11,26 @@ public class Boundary
 public class PlayerController : MonoBehaviour
 {
 
-	Animator animator;
-	public GameObject floorPlane;
+	//Animator animator;
+	//public GameObject floorPlane;
 	//in this demonstration this is set manually, the Retail Ability system has methods for dealing with this automatically via data structures for environments
 	public float speed;
 	public Boundary boundary;
-	int WeaponState = 0;
-	bool wasAttacking = false;
+	//int WeaponState = 0;
+	//bool wasAttacking = false;
 	// we need this so we can take lock the direction we are facing during attacks, mecanim sometimes moves past the target which would flip the character around wildly
 
-	float rotateSpeed = 20.0f;
+	//float rotateSpeed = 20.0f;
 	//used to smooth out turning
 
-	public Vector3 movementTargetPosition;
-	public Vector3 attackPos;
-	public Vector3 lookAtPos;
+	//public Vector3 movementTargetPosition;
+	//public Vector3 attackPos;
+	//public Vector3 lookAtPos;
 
-	RaycastHit hit;
-	Ray ray;
+	//RaycastHit hit;
+	//Ray ray;
 
-	public bool rightButtonDown = false;
+	//public bool rightButtonDown = false;
 	//we use this to "skip out" of consecutive right mouse down...
 
 	public GameObject destroyShot;
@@ -49,8 +49,8 @@ public class PlayerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		animator = GetComponentInChildren<Animator> ();//need this...
-		movementTargetPosition = transform.position;//initializing our movement target as our current position
+		//animator = GetComponentInChildren<Animator> ();//need this...
+		//movementTargetPosition = transform.position;//initializing our movement target as our current position
 		//switchBoltAudio = boltTypeText.GetComponent<AudioSource>();
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
