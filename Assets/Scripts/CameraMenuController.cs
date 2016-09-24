@@ -24,6 +24,11 @@ public class CameraMenuController : MonoBehaviour
 		HideUI (uiShopMenu);
 		fadeInCoroutine = StartCoroutine (FadeInUICoroutine (uiTouchScreen));
 		animator = GetComponent<Animator> ();
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<Animator> ().SetBool ("isWalking", true);
+
+		// On n'affiche pas le logo immédiatement pour éviter le "bug graphique" lorsque le personnage passe devant
+		GameObject.FindGameObjectWithTag ("Bonus").GetComponent<MeshRenderer> ().enabled = false;
+		Invoke ("DisplayBrand", 3);
 	}
 
 	void Update ()
@@ -96,6 +101,11 @@ public class CameraMenuController : MonoBehaviour
 		StopCoroutine (fadeInCoroutine);
 		HideUI (uiMainMenu);
 		StartCoroutine (ZoomInCoroutine (uiShopMenu));
+	}
+
+	void DisplayBrand ()
+	{
+		GameObject.FindGameObjectWithTag ("Bonus").GetComponent<MeshRenderer> ().enabled = true;
 	}
 
 		

@@ -2,11 +2,8 @@
 using System.Collections;
 using UnityEngine.UI;
 
-// necessaire pour gerer les element de l'UI
-
 public class GenerateLevelButtons : MonoBehaviour
 {
-
 	public Button buttonPrefab;
 
 	// Use this for initialization
@@ -14,7 +11,6 @@ public class GenerateLevelButtons : MonoBehaviour
 	{
 		float alpha;
 		foreach (Level lvl in ApplicationController.ac.levels) {
-			Debug.Log ("Creating lvl :" + lvl.id);
 			Button button = Instantiate (buttonPrefab, gameObject.transform) as Button;
 			button.transform.SetParent (gameObject.transform, false);
 			button.transform.localScale = Vector3.one;
@@ -39,8 +35,7 @@ public class GenerateLevelButtons : MonoBehaviour
 			}
 
 			// Init des images de medailles
-			foreach (Image img in button.GetComponentsInChildren<Image>()) {
-				Debug.Log (img.name);
+			foreach (Image img in button.GetComponentsInChildren<Image>()) {				
 				if (ApplicationController.ac.IsMedalObtained (lvl, img.name))
 					alpha = 1f;
 				else
@@ -50,20 +45,6 @@ public class GenerateLevelButtons : MonoBehaviour
 					cg.alpha = alpha;
 			}
 		}
-	    
+	}
 
-		/*for(int i = 2; i < 20; i++)
-        {
-            Button button = Instantiate(buttonPrefab, gameObject.transform) as Button;
-            button.transform.SetParent(gameObject.transform, false);
-            button.transform.localScale = Vector3.one;
-            button.GetComponentInChildren<Text>().text = "Project " + i;
-        }*/
-	}
-	
-	// Update is called once per frame
-	void Update ()
-	{
-	
-	}
 }
