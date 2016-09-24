@@ -100,7 +100,8 @@ public class GameController : MonoBehaviour
 		Quaternion spawnRotation = Quaternion.identity;
 
 		if (rand <= bonusChances [2]) {
-			Instantiate (bonusPrefab, spawnPosition, spawnRotation);
+			//Instantiate (bonusPrefab, spawnPosition, spawnRotation);
+			Instantiate (bonusPrefab, spawnPosition, bonusPrefab.transform.rotation);
 			countBonus++;
 		} else {
 			Instantiate (malusPrefab, spawnPosition, spawnRotation);
