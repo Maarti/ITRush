@@ -2,7 +2,12 @@
 using System.Collections;
 using UnityEngine.UI;
 
-// necessaire pour gerer les element de l'UI
+/*
+ * 
+ *			OBSOLETE	-	REPLACED BY CameraMenuControLLer 
+ * 
+ * 
+*/
 
 public class CameraMenuControler : MonoBehaviour
 {
