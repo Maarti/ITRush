@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.IO;
 
 [Serializable]
-public class Outfitter : MonoBehaviour 
+public class Outfitter : MonoBehaviour
 {
 	
 	CharacterDemoController ac;
@@ -15,43 +15,38 @@ public class Outfitter : MonoBehaviour
 	public List<WeaponSlot> weapons;
 	
 	// Use this for initialization
-	void Start () 
+	void Start ()
 	{
-		ac = GetComponentInChildren<CharacterDemoController>();
-		for(int i = 0;i<weapons.Count;i++)
-		{
-			for(int model=0;model<weapons[i].models.Count;model++)
-			{
-				weapons[i].models[model].enabled = false;
+		ac = GetComponentInChildren<CharacterDemoController> ();
+		for (int i = 0; i < weapons.Count; i++) {
+			for (int model = 0; model < weapons [i].models.Count; model++) {
+				weapons [i].models [model].enabled = false;
 			}
 		}
-		for(int model=0;model<weapons[ac.WeaponState].models.Count;model++)
-		{
-			weapons[ac.WeaponState].models[model].enabled = true;
+		for (int model = 0; model < weapons [ac.WeaponState].models.Count; model++) {
+			weapons [ac.WeaponState].models [model].enabled = true;
 		}
-		oldWeaponIndex=ac.WeaponState;
+		oldWeaponIndex = ac.WeaponState;
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	void Update ()
 	{
-		if(ac.WeaponState!=oldWeaponIndex)
-		{
-			for(int model=0;model<weapons[oldWeaponIndex].models.Count;model++)
-			{
-				weapons[oldWeaponIndex].models[model].enabled = false;
+		if (ac.WeaponState != oldWeaponIndex) {
+			for (int model = 0; model < weapons [oldWeaponIndex].models.Count; model++) {
+				weapons [oldWeaponIndex].models [model].enabled = false;
 			}
-			for(int model=0;model<weapons[ac.WeaponState].models.Count;model++)
-			{
-				weapons[ac.WeaponState].models[model].enabled = true;
+			for (int model = 0; model < weapons [ac.WeaponState].models.Count; model++) {
+				weapons [ac.WeaponState].models [model].enabled = true;
 			}
-			oldWeaponIndex=ac.WeaponState;
+			oldWeaponIndex = ac.WeaponState;
 		}
 	}
 }
+
 [Serializable]
 public class WeaponSlot
 {
 	[SerializeField]
-	public List<Renderer> models = new List<Renderer>();
+	public List<Renderer> models = new List<Renderer> ();
 }

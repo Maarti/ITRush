@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 	public bool isOverdosed;
 
 	private int score, nbDecors, countBonus, countMalus, countCoffee, coffeeHash = Animator.StringToHash ("Coffee");
-	private bool isGameOver, restart, isGamePaused, isLevelComplete;
+	private bool isGameOver, isGamePaused, isLevelComplete;
 	private float timeLeft, overdoseDuration = 6f;
 	private float[] bonusChances;
 	private Animator cameraAnimator;
@@ -38,7 +38,6 @@ public class GameController : MonoBehaviour
 		// Init vars
 		AudioListener.pause = false;
 		isGameOver = false;
-		restart = false;
 		isGamePaused = false;
 		isLevelComplete = false;
 		countBonus = 0;
@@ -168,11 +167,9 @@ public class GameController : MonoBehaviour
 	IEnumerator SpawnDecor ()
 	{
 		while (true) {
-			int decorToSpawn = Random.Range (0, nbDecors);           // Selection decor aleatoire
-			GameObject decor = Instantiate (decors [decorToSpawn]);
-			// (le decor est ensuite placé aléatoire à droite ou à gauche grâce au scripte RandomDecorPosition qui lui est attaché)
-
-			float wait = Random.Range (1f, 5f);                      // Temps d'attente entre 2 objets
+			int decorToSpawn = Random.Range (0, nbDecors);   	// Selection decor aleatoire
+			Instantiate (decors [decorToSpawn]);  				// (le decor est ensuite placé aléatoirement à droite ou à gauche grâce au scripte RandomDecorPosition qui lui est attaché)
+			float wait = Random.Range (1f, 5f); 				// Temps d'attente entre 2 objets
 			yield return new WaitForSeconds (wait);
 		}
 	}

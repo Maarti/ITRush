@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
 
 	public void LoadScene ()
 	{
-		if (levelId != null && levelId != -1)
+		if (levelId != -1)
 			ApplicationController.ac.currentLevel = ApplicationController.ac.levels [levelId];
 		SceneManager.LoadScene (sceneName);
 	}
