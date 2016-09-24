@@ -2,12 +2,16 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour {
+public class SceneLoader : MonoBehaviour
+{
 
-    public string sceneName="Game";
+	public string sceneName = "Game";
+	public int levelId;
 
-    public void LoadScene()
-    {
-        SceneManager.LoadScene(sceneName);
-    }
+	public void LoadScene ()
+	{
+		if (levelId != -1)
+			ApplicationController.ac.currentLevel = ApplicationController.ac.levels [levelId];
+		SceneManager.LoadScene (sceneName);
+	}
 }

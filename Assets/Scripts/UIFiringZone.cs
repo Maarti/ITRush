@@ -24,8 +24,8 @@ public class UIFiringZone : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         if (isHovered)
             if (fireMagnet)
-                player.GetComponent<PlayerController2>().fireMagnet();
+                player.GetComponent<PlayerController>().fireMagnet();
             else
-                player.GetComponent<PlayerController2>().fireDestroy();
+                player.GetComponent<PlayerController>().fireDestroy();
     }
     }
