@@ -24,15 +24,17 @@ public class GameController : MonoBehaviour
 	public Text timerText;
 	public bool isOverdosed;
 
-	private int score, nbDecors, countBonus, countMalus, countCoffee;
+	private int score, nbDecors, countBonus, countMalus, countCoffee, coffeeHash = Animator.StringToHash ("Coffee");
 	private bool isGameOver, restart, isGamePaused, isLevelComplete;
 	private float timeLeft, overdoseDuration = 6f;
 	private float[] bonusChances;
+	private Animator cameraAnimator;
 	// [0] target ; [1] real ; [2] current
 
 	// Use this for initialization
 	void Start ()
 	{
+		cameraAnimator = Camera.main.GetComponent<Animator> ();
 		// Init vars
 		AudioListener.pause = false;
 		isGameOver = false;
@@ -138,6 +140,7 @@ public class GameController : MonoBehaviour
 	void UpdateCoffee ()
 	{
 		coffeeSlider.value = coffeeScore;
+		cameraAnimator.SetInteger (coffeeHash, coffeeScore);
 	}
 
 	public void pauseGame ()
