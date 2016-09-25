@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour
 	public Button pauseButton, menuButton;
 	public Image uiDestroyBoltArea, uiMagnetBoltArea;
 	public GameObject[] decors;
-	public CanvasGroup uiLevelComplete, uiGameOver, uiPause, uiOverdose;
+	public CanvasGroup uiLevelComplete, uiGameOver, uiPause, uiOverdose, uiCoffeeGauge;
 	public Text timerText;
 	public bool isOverdosed;
 
@@ -55,18 +55,22 @@ public class GameController : MonoBehaviour
 		uiPause.blocksRaycasts = false;
 		uiOverdose.alpha = 0f;
 		Time.timeScale = 1;
-		score = 200;
-		coffeeScore = 500;
+		score = ApplicationController.ac.currentLevel.startScore;
+		coffeeScore = ApplicationController.ac.currentLevel.startCoffeeScore;
 		UpdateScore ();
 		UpdateCoffee ();
 		targetBonusChance = ApplicationController.ac.currentLevel.bonusRate;
 		bonusChances = new float[3] { targetBonusChance, 0f, targetBonusChance };
+		// Coffee Gauge
+		if (ApplicationController.ac.currentLevel.withCoffee)
+			uiCoffeeGauge.alpha = 1f;
+		else
+			uiCoffeeGauge.alpha = 0f;
 		// Init bonus/malus scores
 		foreach (GameObject bonusPrefab in bonusPrefabs) {
 			bonusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.bonusValue;
 		}
 		foreach (GameObject malusPrefab in malusPrefabs) {
-			Debug.Log ("Malus inited");
 			malusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.malusValue;
 		}
 		Debug.Log ("Start level " + ApplicationController.ac.currentLevel.id + " - " + timeLeft + "sec");
@@ -104,10 +108,9 @@ public class GameController : MonoBehaviour
 	void InstanciateCollectible (float rand)
 	{
 		Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
-		//Quaternion spawnRotation = Quaternion.identity;
 
-		if (rand <= bonusChances [2]) {
-			int randomBonusNum = Random.Range (0, bonusPrefabs.Length);
+		if (rand <= bonusChances [2]) {										// Random : bonus ou malus ?
+			int randomBonusNum = Random.Range (0, bonusPrefabs.Length);		// Random : quel type de bonus ?
 			Instantiate (bonusPrefabs [randomBonusNum], spawnPosition, bonusPrefabs [randomBonusNum].transform.rotation);
 			countBonus++;
 		} else {
@@ -122,7 +125,6 @@ public class GameController : MonoBehaviour
 		if (isGameOver || isLevelComplete)
 			return;
 		score = Mathf.Clamp (score + newScoreValue, 0, 1000);
-		// score += newScoreValue;
 		UpdateScore ();
 		if (score >= 1000)
 			LevelFinished ();
@@ -191,8 +193,6 @@ public class GameController : MonoBehaviour
 		uiLevelComplete.blocksRaycasts = true;
 		float totalTime = timeMax - timeLeft;
 		ApplicationController.ac.LevelFinished (totalTime);
-		//ApplicationController.ac.earnMedal (0, 2);
-
 	}
 
 	void GameOver ()
@@ -247,35 +247,39 @@ public class GameController : MonoBehaviour
 
 	IEnumerator SpawnCoffee ()
 	{
-		yield return new WaitForSeconds (startWait);
-		while (!isLevelComplete && !isGameOver) {
-			// float randSpawn = Random.value;
-			Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValue.x, spawnValue.x), coffeePrefab.transform.position.y, spawnValue.z);
-			//Quaternion spawnRotation = Quaternion.identity;s
-			Instantiate (coffeePrefab, spawnPosition, coffeePrefab.transform.rotation);
-			countCoffee++;
-			float waitForCoffee = Random.Range (waveWait - 2, waveWait + 2);
-			yield return new WaitForSeconds (waitForCoffee);
+		if (ApplicationController.ac.currentLevel.withCoffee) {
+			yield return new WaitForSeconds (startWait);
+			while (!isLevelComplete && !isGameOver) {
+				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValue.x, spawnValue.x), coffeePrefab.transform.position.y, spawnValue.z);
+				Instantiate (coffeePrefab, spawnPosition, coffeePrefab.transform.rotation);
+				countCoffee++;
+				float waitForCoffee = Random.Range (waveWait - 2, waveWait + 2);
+				yield return new WaitForSeconds (waitForCoffee);
+			}
 		}
 	}
 
 	IEnumerator LooseCoffeeCoroutine ()
 	{
-		while (!isLevelComplete && !isGameOver) {
-			AddCoffee (-coffeeConsumption);
-			yield return new WaitForSeconds (.5f);
+		if (ApplicationController.ac.currentLevel.withCoffee) {
+			while (!isLevelComplete && !isGameOver) {
+				AddCoffee (-coffeeConsumption);
+				yield return new WaitForSeconds (.5f);
+			}
 		}
 	}
 
 	IEnumerator Overdose ()
 	{       
-		isOverdosed = true;
-		uiOverdose.alpha = 1f;
-		Debug.Log ("Overdose=" + isOverdosed);
-		yield return new WaitForSeconds (overdoseDuration);
-		isOverdosed = false;
-		uiOverdose.alpha = 0f;
-		AddCoffee (-750);
-		Debug.Log ("Overdose=" + isOverdosed);
+		if (ApplicationController.ac.currentLevel.withCoffee) {
+			isOverdosed = true;
+			uiOverdose.alpha = 1f;
+			Debug.Log ("Overdose=" + isOverdosed);
+			yield return new WaitForSeconds (overdoseDuration);
+			isOverdosed = false;
+			uiOverdose.alpha = 0f;
+			AddCoffee (-750);
+			Debug.Log ("Overdose=" + isOverdosed);
+		}
 	}
 }
