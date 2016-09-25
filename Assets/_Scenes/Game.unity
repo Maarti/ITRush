@@ -5611,6 +5611,7 @@ MonoBehaviour:
   malusPrefabs:
   - {fileID: 1000010281517312, guid: e6afbc1a426387949bf6972cbc836b79, type: 2}
   - {fileID: 1000014186518564, guid: fac9b644bb5a72e4ea9eb6d5dccd65b3, type: 2}
+  - {fileID: 1000010505413840, guid: cf95c4dc08a981d489069a6c3e8b1133, type: 2}
   bonusPrefabs:
   - {fileID: 1000010563352536, guid: bf1e9fe6eb1897743a45d98fc0606f29, type: 2}
   coffeePrefab: {fileID: 1000011068253298, guid: 295303617ad7e1e4680f2fa29a8bf9c0,
