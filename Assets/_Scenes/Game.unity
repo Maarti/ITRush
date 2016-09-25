@@ -1291,7 +1291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acc795db94476e4488a9aa30fee4d070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.3
   boundary:
     xMin: -4.5
     xMax: 4.5
@@ -1301,11 +1300,10 @@ MonoBehaviour:
     type: 2}
   magnetShot: {fileID: 1000011076828488, guid: db346d0e39f506c41bc4ddd3c16e8f9d, type: 2}
   shotSpawn: {fileID: 161265591}
+  speed: 0.3
   fireRate: 0.25
   fireRateMin: 1
   fireRateMax: 0.1
-  isMagnetShoot: 0
-  boltTypeText: {fileID: 0}
 --- !u!136 &397761799
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4151,7 +4149,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1295651043
 Transform:
   m_ObjectHideFlags: 0
@@ -5610,11 +5608,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 642ca52688cef9046877b352a800b819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  malusPrefab: {fileID: 1000011085828160, guid: d323bde255b0bdf4dab0696669627c38,
-    type: 2}
-  bonusPrefab: {fileID: 1000012683944138, guid: d323bde255b0bdf4dab0696669627c38,
-    type: 2}
-  coffeePrefab: {fileID: 1000011318091834, guid: d323bde255b0bdf4dab0696669627c38,
+  malusPrefabs:
+  - {fileID: 1000010281517312, guid: e6afbc1a426387949bf6972cbc836b79, type: 2}
+  - {fileID: 1000010556398402, guid: d4604d1975f7adf4a9ca1ed239e2457b, type: 2}
+  - {fileID: 1000010505413840, guid: cf95c4dc08a981d489069a6c3e8b1133, type: 2}
+  bonusPrefabs:
+  - {fileID: 1000010563352536, guid: bf1e9fe6eb1897743a45d98fc0606f29, type: 2}
+  - {fileID: 1000012460669624, guid: 0d52a196d36d6484fad454913852f270, type: 2}
+  coffeePrefab: {fileID: 1000011068253298, guid: 295303617ad7e1e4680f2fa29a8bf9c0,
     type: 2}
   spawnValue: {x: 5, y: 1, z: 35}
   hazardCount: 10
