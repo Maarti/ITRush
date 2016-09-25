@@ -248,12 +248,15 @@ public class GameController : MonoBehaviour
 	IEnumerator SpawnCoffee ()
 	{
 		if (ApplicationController.ac.currentLevel.withCoffee) {
+			float timeMin = ApplicationController.ac.currentLevel.coffeeTimeRange [0];
+			float timeMax = ApplicationController.ac.currentLevel.coffeeTimeRange [1];
 			yield return new WaitForSeconds (startWait);
 			while (!isLevelComplete && !isGameOver) {
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValue.x, spawnValue.x), coffeePrefab.transform.position.y, spawnValue.z);
 				Instantiate (coffeePrefab, spawnPosition, coffeePrefab.transform.rotation);
 				countCoffee++;
-				float waitForCoffee = Random.Range (waveWait - 2, waveWait + 2);
+				//float waitForCoffee = Random.Range (waveWait - 2, waveWait + 2);
+				float waitForCoffee = Random.Range (timeMin, timeMax);
 				yield return new WaitForSeconds (waitForCoffee);
 			}
 		}
