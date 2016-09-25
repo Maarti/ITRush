@@ -27,7 +27,7 @@ GameObject:
   - 23: {fileID: 23000013341894428}
   - 65: {fileID: 65000011705416298}
   m_Layer: 0
-  m_Name: count_old
+  m_Name: count
   m_TagString: Bonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

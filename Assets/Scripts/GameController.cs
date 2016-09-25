@@ -12,7 +12,8 @@ public class GameController : MonoBehaviour
         public GameObject gameObject;
         public float chance;
     }*/
-	public GameObject malusPrefab, bonusPrefab, coffeePrefab;
+	public GameObject[] malusPrefabs, bonusPrefabs;
+	public GameObject coffeePrefab;
 	public Vector3 spawnValue;
 	public int hazardCount, coffeeScore, coffeeConsumption;
 	public float spawnWait, startWait, waveWait, timeMax, targetBonusChance;
@@ -60,8 +61,14 @@ public class GameController : MonoBehaviour
 		UpdateCoffee ();
 		targetBonusChance = ApplicationController.ac.currentLevel.bonusRate;
 		bonusChances = new float[3] { targetBonusChance, 0f, targetBonusChance };
-		bonusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.bonusValue;
-		malusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.malusValue;
+		// Init bonus/malus scores
+		foreach (GameObject bonusPrefab in bonusPrefabs) {
+			bonusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.bonusValue;
+		}
+		foreach (GameObject malusPrefab in malusPrefabs) {
+			Debug.Log ("Malus inited");
+			malusPrefab.GetComponent<DestroyByContact> ().scoreValue = ApplicationController.ac.currentLevel.malusValue;
+		}
 		Debug.Log ("Start level " + ApplicationController.ac.currentLevel.id + " - " + timeLeft + "sec");
 		// Start coroutines
 		StartCoroutine (SpawnWaves ());
@@ -97,14 +104,15 @@ public class GameController : MonoBehaviour
 	void InstanciateCollectible (float rand)
 	{
 		Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
-		Quaternion spawnRotation = Quaternion.identity;
+		//Quaternion spawnRotation = Quaternion.identity;
 
 		if (rand <= bonusChances [2]) {
-			//Instantiate (bonusPrefab, spawnPosition, spawnRotation);
-			Instantiate (bonusPrefab, spawnPosition, bonusPrefab.transform.rotation);
+			int randomBonusNum = Random.Range (0, bonusPrefabs.Length);
+			Instantiate (bonusPrefabs [randomBonusNum], spawnPosition, bonusPrefabs [randomBonusNum].transform.rotation);
 			countBonus++;
 		} else {
-			Instantiate (malusPrefab, spawnPosition, spawnRotation);
+			int randomMalusNum = Random.Range (0, malusPrefabs.Length);
+			Instantiate (malusPrefabs [randomMalusNum], spawnPosition, malusPrefabs [randomMalusNum].transform.rotation);
 			countMalus++;
 		}
 	}
