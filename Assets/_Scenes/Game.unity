@@ -5936,7 +5936,7 @@ MonoBehaviour:
   coffeeConsumption: 6
   spawnWait: 1
   startWait: 1
-  waveWait: 4
+  waveWait: 2
   timeMax: 60
   targetBonusChance: 0.5
   scoreSlider: {fileID: 732882313}

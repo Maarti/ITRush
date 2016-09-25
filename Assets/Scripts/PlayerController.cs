@@ -61,8 +61,12 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Time.time > nextFire) {
 			UpdateFirerate ();
+			float vol = Random.Range (.5f, 1f);
+			float pitch = Random.Range (.8f, 1.2f);
 			GameObject bolt = Instantiate (destroyShot, shotSpawn.position, shotSpawn.rotation) as GameObject;
-			bolt.GetComponent<AudioSource> ().Play ();
+			AudioSource audioSource = bolt.GetComponent<AudioSource> ();
+			audioSource.pitch = pitch;
+			audioSource.PlayOneShot (audioSource.clip, vol);
 			if (gameController.isOverdosed)
 				bolt.GetComponent<Mover> ().randomDirection = true;
 		}
@@ -72,8 +76,12 @@ public class PlayerController : MonoBehaviour
 	{
 		if (Time.time > nextFire) {
 			UpdateFirerate ();
+			float vol = Random.Range (.5f, 1f);
+			float pitch = Random.Range (.8f, 1.2f);
 			GameObject bolt = Instantiate (magnetShot, shotSpawn.position, shotSpawn.rotation) as GameObject;
-			bolt.GetComponent<AudioSource> ().Play ();
+			AudioSource audioSource = bolt.GetComponent<AudioSource> ();
+			audioSource.pitch = pitch;
+			audioSource.PlayOneShot (audioSource.clip, vol);
 			if (gameController.isOverdosed)
 				bolt.GetComponent<Mover> ().randomDirection = true;
 		}

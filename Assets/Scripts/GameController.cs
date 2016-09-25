@@ -205,7 +205,7 @@ public class GameController : MonoBehaviour
 
 	void StopGame ()
 	{
-		//GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>().enabled = false;
+		GetComponent<AudioSource> ().pitch = 1f;
 		uiMagnetBoltArea.enabled = false;
 		uiDestroyBoltArea.enabled = false;
 		pauseButton.enabled = false;
@@ -216,16 +216,12 @@ public class GameController : MonoBehaviour
 	{
 		bool redEffect = false;
 		while (!isLevelComplete) {
-			//timerText.text = string.Format("{0:0}:{1:00}", minutes, seconds);
 			timerText.text = "" + (int)timeLeft;
 			if (timeLeft < 15 && !redEffect) {
 				redEffect = true;
-				//timerText.GetComponent<Outline>().effectColor = Color.red;
-				//timerText.GetComponent<Outline>().effectDistance.Set(1f, -1f);
+				GetComponent<AudioSource> ().pitch = 1.5f;
 				timerText.GetComponent<Outline> ().enabled = true;
-				timerText.fontSize = 46;
-
-				//timerText.fontStyle = FontStyle.Bold;
+				timerText.fontSize = 55;
 			}
 			yield return new WaitForSeconds (0.2f);
 		}
