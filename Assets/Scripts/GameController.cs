@@ -108,10 +108,11 @@ public class GameController : MonoBehaviour
 	void InstanciateCollectible (float rand)
 	{
 		Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValue.x, spawnValue.x), spawnValue.y, spawnValue.z);
+		Transform parent = GameObject.FindGameObjectWithTag ("GameController").transform;
 
 		if (rand <= bonusChances [2]) {										// Random : bonus ou malus ?
 			int randomBonusNum = Random.Range (0, bonusPrefabs.Length);		// Random : quel type de bonus ?
-			Instantiate (bonusPrefabs [randomBonusNum], spawnPosition, bonusPrefabs [randomBonusNum].transform.rotation);
+			Instantiate (bonusPrefabs [randomBonusNum], spawnPosition, bonusPrefabs [randomBonusNum].transform.rotation, parent);
 			countBonus++;
 		} else {
 			int randomMalusNum = Random.Range (0, malusPrefabs.Length);
@@ -219,7 +220,7 @@ public class GameController : MonoBehaviour
 			timerText.text = "" + (int)timeLeft;
 			if (timeLeft < 15 && !redEffect) {
 				redEffect = true;
-				GetComponent<AudioSource> ().pitch = 1.5f;
+				GetComponent<AudioSource> ().pitch = 1.2f;
 				timerText.GetComponent<Outline> ().enabled = true;
 				timerText.fontSize = 55;
 			}
