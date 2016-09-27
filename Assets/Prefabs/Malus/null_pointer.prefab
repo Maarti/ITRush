@@ -26,6 +26,7 @@ GameObject:
   - 23: {fileID: 23000010630937370}
   - 33: {fileID: 33000010564513392}
   - 65: {fileID: 65000010618370694}
+  - 114: {fileID: 114000012904170554}
   m_Layer: 0
   m_Name: null_pointer
   m_TagString: Malus
@@ -150,3 +151,15 @@ MonoBehaviour:
   randomDirection: 0
   magnetSpeed: 20
   direction: {x: 0, y: 0, z: 1}
+--- !u!114 &114000012904170554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010556398402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead674c96ccc294c91b609f672b7d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30

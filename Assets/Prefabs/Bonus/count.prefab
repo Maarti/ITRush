@@ -25,7 +25,7 @@ GameObject:
   - 54: {fileID: 54000013355959602}
   - 23: {fileID: 23000013341894428}
   - 65: {fileID: 65000011705416298}
-  - 95: {fileID: 95000011072215904}
+  - 114: {fileID: 114000011151269720}
   m_Layer: 0
   m_Name: count
   m_TagString: Bonus
@@ -40,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010563352536}
   m_LocalRotation: {x: 0, y: 0.82903755, z: 0.559193, w: 0}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 3.09, y: 1, z: 3.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: -68, y: 180, z: 4.64}
   m_Children: []
@@ -109,23 +109,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.98, y: 0.29999998, z: 0.17999999}
   m_Center: {x: 0.36, y: 0.14999999, z: 0}
---- !u!95 &95000011072215904
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010563352536}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 39080bf7145550f4cb4dbda95c9a0a78, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114000010334021782
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -139,6 +122,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosion: {fileID: 100004, guid: 2857e183f4cd3df4e9096e5b578bd32f, type: 2}
   scoreValue: 30
+--- !u!114 &114000011151269720
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010563352536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ead674c96ccc294c91b609f672b7d1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
 --- !u!114 &114000014139890136
 MonoBehaviour:
   m_ObjectHideFlags: 1
