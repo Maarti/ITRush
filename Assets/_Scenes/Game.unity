@@ -5922,12 +5922,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   malusPrefabs:
-  - {fileID: 1000010281517312, guid: e6afbc1a426387949bf6972cbc836b79, type: 2}
-  - {fileID: 1000010556398402, guid: d4604d1975f7adf4a9ca1ed239e2457b, type: 2}
-  - {fileID: 1000010505413840, guid: cf95c4dc08a981d489069a6c3e8b1133, type: 2}
+  - {fileID: 1000012491111868, guid: c22c5606ac0cf3c46a8a18031dde93f9, type: 2}
+  - {fileID: 1000011152048648, guid: e7684633e6bc4f74783df69882bb63f6, type: 2}
+  - {fileID: 1000013468418102, guid: 222cec6eb900877478b5592281965077, type: 2}
+  - {fileID: 1000013604588434, guid: 51e402c891fb9844f9ec71a3aed67d80, type: 2}
+  - {fileID: 1000010796453904, guid: c5e72383f2ae40e40a1b678f43c9f6fc, type: 2}
+  - {fileID: 1000011789218366, guid: 15bd5d3d41dd22d4c89bfd5294f6b195, type: 2}
+  - {fileID: 1000012475610306, guid: 49ee4b370a71c1b4fb9d6e3a94652f06, type: 2}
+  - {fileID: 1000010978594116, guid: 51fa3a8307bffe642a18271158a438bb, type: 2}
+  - {fileID: 1000011551119982, guid: 720699d2061f9124eabf80f616b69838, type: 2}
+  - {fileID: 1000012098898176, guid: 731eab77d9c5a9a43808199070ef7b58, type: 2}
   bonusPrefabs:
-  - {fileID: 1000010563352536, guid: bf1e9fe6eb1897743a45d98fc0606f29, type: 2}
-  - {fileID: 1000012460669624, guid: 0d52a196d36d6484fad454913852f270, type: 2}
+  - {fileID: 1000010095526464, guid: 02c0a7da6cf4c9b48a72c6207e57526c, type: 2}
+  - {fileID: 1000013140881130, guid: 7f5c01a82092bde4d8fc4aa86a987548, type: 2}
+  - {fileID: 1000012388864876, guid: b5a87045b47904f4bbd6c75f0fe076b7, type: 2}
+  - {fileID: 1000010191652474, guid: 30aad63c211723c479928dfa5c84ec45, type: 2}
+  - {fileID: 1000011748039864, guid: cd91bbdaebe02a443be351f4a4525426, type: 2}
+  - {fileID: 1000012312897970, guid: e03b2ec6face78047b2a029d09df11da, type: 2}
+  - {fileID: 1000013222347446, guid: e760c21eb441b484d924ec5b8017b3e1, type: 2}
+  - {fileID: 1000013853058066, guid: 0b1cc09b0b410104ba902ecf6b0400a7, type: 2}
+  - {fileID: 1000012785091160, guid: b07cb6b6c045b96429499159743c37d7, type: 2}
+  - {fileID: 1000011968951564, guid: 9136246e55528234ba1692730fb38c4f, type: 2}
+  - {fileID: 1000011021379058, guid: f58c37ddf554ce745abd29025b1a32ff, type: 2}
   coffeePrefab: {fileID: 1000011068253298, guid: 295303617ad7e1e4680f2fa29a8bf9c0,
     type: 2}
   spawnValue: {x: 5, y: 1, z: 35}
