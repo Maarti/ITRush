@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 38f719d860cc7824db06a81cd7ceb6b4
+timeCreated: 1474819165
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 90
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - COMPUTER Robot
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
