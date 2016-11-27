@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour
 			countBonus++;
 		} else {
 			int randomMalusNum = Random.Range (0, malusPrefabs.Length);
-			Instantiate (malusPrefabs [randomMalusNum], spawnPosition, malusPrefabs [randomMalusNum].transform.rotation);
+			Instantiate (malusPrefabs [randomMalusNum], spawnPosition, malusPrefabs [randomMalusNum].transform.rotation, parent);
 			countMalus++;
 		}
 	}

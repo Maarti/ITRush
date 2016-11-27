@@ -25,7 +25,7 @@ public class Tumbler : MonoBehaviour
 			newY = y += 0.05f * speed * Time.deltaTime;
 		else
 			newY = y -= 0.05f * speed * Time.deltaTime;
-		Debug.Log (newY);
+		//Debug.Log (newY);
 		transform.position = new Vector3 (transform.position.x, newY, transform.position.z);
 	}
 }
